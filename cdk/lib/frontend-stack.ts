@@ -21,7 +21,7 @@ export class FrontendStack extends cdk.Stack {
       customRules: [
         {
           source: '/<*>',
-          target: ' /index.html',
+          target: '/.next/server/app/index.html', //'/index.html',
           status: RedirectStatus.NOT_FOUND_REWRITE,
         },
       ],
@@ -38,6 +38,7 @@ export class FrontendStack extends cdk.Stack {
             },
           },
           artifacts: {
+            commands: ['echo PRE baseDirectory 🚀🚀', 'pwd'],
             baseDirectory: 'frontend/.next',
             files: ['**/*'],
           },
