@@ -38,7 +38,7 @@ export class FrontendStack extends cdk.Stack {
             },
           },
           artifacts: {
-            baseDirectory: '.next',
+            baseDirectory: 'frontend/.next',
             files: ['**/*'],
           },
           cache: {
