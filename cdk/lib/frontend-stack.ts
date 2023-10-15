@@ -18,7 +18,34 @@ export class FrontendStack extends cdk.Stack {
         oauthToken: cdk.SecretValue.secretsManager('github-token'),
       }),
       autoBranchDeletion: true,
-     
+      // customRules: [
+      //   {
+      //     source: '/<*>',
+      //     target: '/.next/server/app/index.html', //'/index.html',
+      //     status: RedirectStatus.NOT_FOUND_REWRITE,
+      //   },
+      // ],
+      environmentVariables:{},
+      buildSpec: BuildSpec.fromObjectToYaml({
+        version: 1,
+        frontend: {
+          phases: {
+            preBuild: {
+              commands: ['yarn ci'],
+            },
+            build: {
+              commands: ['yarn build'],
+            },
+          },
+          artifacts: {
+            baseDirectory: 'build',
+            files: ['**/*'],
+          },
+          cache: {
+            paths: ['node_modules/**/*'],
+          },
+        },
+      }) 
       
     })
 
