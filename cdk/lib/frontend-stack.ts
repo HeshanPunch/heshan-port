@@ -31,7 +31,7 @@ export class FrontendStack extends cdk.Stack {
         frontend: {
           phases: {
             preBuild: {
-              commands: ['pwd && ls','npm ci'],
+              commands: ['pwd && ls','cd heshanpunch','npm ci'],
             },
             build: {
               commands: ['pwd && ls & yarn build'],
