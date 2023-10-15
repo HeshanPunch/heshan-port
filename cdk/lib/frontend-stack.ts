@@ -31,7 +31,7 @@ export class FrontendStack extends cdk.Stack {
         frontend: {
           phases: {
             preBuild: {
-              commands: ['yarn ci'],
+              commands: ['npm ci'],
             },
             build: {
               commands: ['yarn build'],
