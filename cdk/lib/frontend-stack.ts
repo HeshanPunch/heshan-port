@@ -11,7 +11,7 @@ export class FrontendStack extends cdk.Stack {
     super(scope, id, props);
 
     const amplifyApp = new App(this, 'Amplify-heshanpunch', {
-      appName: 'heshanpunch NextJS app from CDK',
+      appName: 'heshanpunch app from CDK',
       sourceCodeProvider: new GitHubSourceCodeProvider({
         owner: 'HeshanPunch',
         repository: 'heshan-port',
