@@ -18,35 +18,35 @@ export class FrontendStack extends cdk.Stack {
         oauthToken: cdk.SecretValue.secretsManager('github-token'),
       }),
       autoBranchDeletion: true,
-      customRules: [
-        {
-          source: '/<*>',
-          target: '/.next/server/app/index.html', //'/index.html',
-          status: RedirectStatus.NOT_FOUND_REWRITE,
-        },
-      ],
-      environmentVariables:{},
-      buildSpec: BuildSpec.fromObjectToYaml({
-        version: 1,
-        frontend: {
-          phases: {
-            preBuild: {
-              commands: ['echo PRE yarn HELLOOOOOOOOOOOOOOOOOOOOOO🚀','cd frontend', 'pwd', 'yarn'],
-            },
-            build: {
-              commands: ['echo PRE BUILD HELLOOOOOOOOOOOOOOOOOOOOOO🚀','pwd','yarn build'],
-            },
-          },
-          artifacts: {
-            commands: ['echo PRE baseDirectory 🚀🚀', 'pwd'],
-            baseDirectory: 'frontend/.next',
-            files: ['**/*'],
-          },
-          cache: {
-            paths: ['node_modules/**/*'],
-          },
-        },
-      }) 
+      // customRules: [
+      //   {
+      //     source: '/<*>',
+      //     target: '/.next/server/app/index.html', //'/index.html',
+      //     status: RedirectStatus.NOT_FOUND_REWRITE,
+      //   },
+      // ],
+      // environmentVariables:{},
+      // buildSpec: BuildSpec.fromObjectToYaml({
+      //   version: 1,
+      //   frontend: {
+      //     phases: {
+      //       preBuild: {
+      //         commands: ['echo PRE yarn HELLOOOOOOOOOOOOOOOOOOOOOO🚀','cd frontend', 'pwd', 'yarn'],
+      //       },
+      //       build: {
+      //         commands: ['echo PRE BUILD HELLOOOOOOOOOOOOOOOOOOOOOO🚀','pwd','yarn build'],
+      //       },
+      //     },
+      //     artifacts: {
+      //       commands: ['echo PRE baseDirectory 🚀🚀', 'pwd'],
+      //       baseDirectory: 'frontend/.next',
+      //       files: ['**/*'],
+      //     },
+      //     cache: {
+      //       paths: ['node_modules/**/*'],
+      //     },
+      //   },
+      // }) 
       
     })
 
